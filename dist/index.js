@@ -12713,8 +12713,7 @@ const getBranch = () => {
   if (ref.startsWith("refs/heads/")) {
     return ref.substring(11);
   } else if (ref.startsWith("refs/pull/") && headRef) {
-    (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.info)(`This is a PR. Using head ref ${headRef} instead of ${ref}`);
-    return headRef;
+    return ref.substring(5).replace(/\/merge$/, "/head");
   }
   return ref;
 };
